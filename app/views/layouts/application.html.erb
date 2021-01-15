@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PostApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to 'Home', root_path, class: "navbar-item" %>
+    <form class="form-inline">
+      <% if current_user.present? %> 
+        <div style="padding-left: 10px;">
+          <%= link_to "Create New Post", new_post_path, class:"navbar-item" , class: "btn btn-outline-success" %>
+        </div>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary"  %>
+        
+      <%else %>
+        <div style="padding-left: 10px;">
+          <%= link_to  "Sign Up", new_user_registration_path, class: "btn btn-outline-success"   %>
+        </div>
+        <%= link_to "Sign In", user_session_path , class: "btn btn-outline-primary"  %>
+      <% end %> 
+    </form>
+  </nav>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        <%= yield :page_title %>
+      </h1>
+    </div>
+  </div>
+  <%= yield %>
+  <p class = "notice" ><%= notice %> </p>
+  <p class = "alert" ><%= alert %></p>
+  </body>
+</html>
