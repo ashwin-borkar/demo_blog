@@ -28,7 +28,7 @@
         <div class="description">
             <p>
             <strong>image:</strong>
-            <% if @post.images.attached? %>
+            <% if @post.imagess.attached? %>
             <%= image_tag @post.images , style: "height:50px; witdth:50px;" %>
             <% end %>
           </p>
