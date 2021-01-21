@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :state, presence: true
   validates :country, presence: true
   # validates_format_of :image, :with => %r{\.(png|jpg|jpeg)$}i, :message => "whatever"
-  validates :image, format: {with: /\.(png|jpg)\Z/i}
+  #validates :image, format: {with: /\.(png|jpg)\Z/i}
   validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed"
 
 
